@@ -2,7 +2,7 @@
 [![Version0](https://api.travis-ci.org/dwyl/esta.svg?branch=master&status=passed)](https://github.com/yunusemreaydinli/DHT11) 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/yunusemreaydinli/DHT11/)
-##
+
 
 DHT11'in nasıl kullanıldığını, nasıl bağlantılarının yapıldığını, nasıl kodladığını görüceksiniz. Meraklı ve sabırlı olmanızı diliyor ve bir sözle başlamak istiyorum.
 
