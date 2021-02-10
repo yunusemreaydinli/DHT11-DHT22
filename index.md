@@ -1,37 +1,50 @@
-## Welcome to GitHub Pages
+# DHT11 Sensörü Kullanımı
+[![Version0](https://api.travis-ci.org/dwyl/esta.svg?branch=master&status=passed)](https://github.com/yunusemreaydinli/DHT11) 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/yunusemreaydinli/DHT11/blob/main/LICENSE)
+[![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/yunusemreaydinli/DHT11/blob/main/LICENSE)
 
-You can use the [editor on GitHub](https://github.com/yunusemreaydinli/DHT11/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+DHT11'in nasıl kullanıldığını, nasıl bağlantılarının yapıldığını, nasıl kodladığını görüceksiniz. Meraklı ve sabırlı olmanızı diliyor ve bir sözle başlamak istiyorum.
 
-### Markdown
+> Merak öğrenme mumunun fitilidir. W. Arthur Ward
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## 
+- İlk önce DHT11 Kütüphanesini kuralım. [Buraya tıklayarak](https://www.arduino.cc/reference/en/libraries/dht-sensor-library/) ‘Releases’ bölümünden en son sürümü indirin. 
+DHT11 Kütüphanemiz indiğine göre artık Arduino’ya kütüphanemizi yükleyelim.
+Nasıl yüklemeniz gerektiğini bilmiyor iseniz [buraya tıklayarak](https://www.robimek.com/arduinoya-kutuphane-nasil-eklenir/) nasıl Arduino’ya yükleyeceğinizi görseller ile görebilirsiniz!
+Kütüphanemizi de eklediğimize göre artık kodlamaya geçebiliriz.
 
-```markdown
-Syntax highlighted code block
+```c
+#include "DHT.h"  //DHT11 Kütüphanesi
 
-# Header 1
-## Header 2
-### Header 3
+#define DHTPIN 2  //DHT11 data pini
 
-- Bulleted
-- List
+DHT dht(DHTPIN, DHT11);
 
-1. Numbered
-2. List
+void setup() {
+  Serial.begin(9600); //Seri haberleşme başlatılır
+  dht.begin();        //dht başlatılır
+}
 
-**Bold** and _Italic_ and `Code` text
+void loop() {
+  delay(2000);        //Her okuma arasında 2sn beklenir
 
-[Link](url) and ![Image](src)
+  float nem = dht.readHumidity();          //Nem bilgisi alınır
+  float sicaklik = dht.readTemperature();  //Sıcaklık bilgisi alınır
+
+  //Okunan değerler seri porttan gönderilir
+  Serial.print("Nem ");
+  Serial.print(nem  );
+  Serial.print(" %\t");
+  Serial.print("Sıcaklık: ");
+  Serial.print(sicaklik);
+  Serial.println(" *C ");
+}
 ```
+## Bağlantı Şeması
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+- Sensörü 5V ile çalıştırın ve toprağı toprağa bağlayın.
 
-### Jekyll Themes
+- Veri pimini _(DATA’yı)_ bir dijital pime 2 bağlayın.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/yunusemreaydinli/DHT11/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+![sema](https://github.com/yunusemreaydinli/DHT11/blob/main/sema.png)
