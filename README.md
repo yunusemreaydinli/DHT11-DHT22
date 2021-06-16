@@ -4,7 +4,7 @@
 [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/yunusemreaydinli/DHT11/blob/main/LICENSE)
 
 
-DHT11'in nasıl kullanıldığını, nasıl bağlantılarının yapıldığını, nasıl kodladığını görüceksiniz.
+DHT11'in nasıl kullanıldığını, nasıl bağlantılarının yapıldığını, nasıl kodladığını göreceğiz.
 
 ## 
 - İlk önce DHT11 Kütüphanesini kuralım. [Buraya tıklayarak](https://www.arduino.cc/reference/en/libraries/dht-sensor-library/) ‘Releases’ bölümünden en son sürümü indirin. 
